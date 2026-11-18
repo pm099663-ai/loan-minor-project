@@ -1,13 +1,13 @@
 # FinSight — Loan Approval Prediction and EMI Risk Analysis
 
-A Flask + SQLite educational web application with a trained Random Forest approval classifier, Logistic Regression comparison, an EMI affordability view, searchable prediction history and downloadable PDF reports.
+A Flask + SQLite educational web application with Random Forest model training, a Logistic Regression comparison, an EMI affordability view, searchable prediction history and downloadable PDF reports.
 
 ## Run locally
 
 Requires Python 3.10+ (tested environment should use a supported Python release).
 
 ```bash
-cd loan-approval-prediction
+# Run these commands from the project root
 python -m venv .venv
 # Windows PowerShell: .venv\Scripts\Activate.ps1
 # macOS/Linux: source .venv/bin/activate
@@ -24,7 +24,7 @@ Push the contents of this project folder to the root of a GitHub repository and 
 
 ## Dataset and honest feature scope
 
-`dataset/loan_approval_dataset.csv` is a public educational dataset of 4,269 loan applications, with the fields `no_of_dependents`, `education`, `self_employed`, `income_annum`, `loan_amount`, `loan_term`, `cibil_score`, four asset values, and `loan_status`. Source: [dataset repository](https://github.com/loh-0/Loan-Approval-Prediction/blob/main/data/loan_approval_dataset.csv). The model does not learn age, existing EMIs, credit-history labels, gender, marital status, or monthly repayment capacity because these are absent from the dataset. The applicant's monthly household income is annualized to align with `income_annum`; monthly new-loan EMI is converted to whole-year term for the model while affordability uses the exact selected month count.
+`dataset/loan_approval_dataset.csv` is a public educational dataset of 4,269 loan applications, with the fields `no_of_dependents`, `education`, `self_employed`, `income_annum`, `loan_amount`, `loan_term`, `cibil_score`, four asset values, and `loan_status`. It is included in the ZIP package; if absent from a Git checkout, the training script downloads it and verifies its SHA-256 before use. Source: [dataset repository](https://github.com/loh-0/Loan-Approval-Prediction/blob/main/data/loan_approval_dataset.csv). The model does not learn age, existing EMIs, credit-history labels, gender, marital status, or monthly repayment capacity because these are absent from the dataset. The applicant's monthly household income is annualized to align with `income_annum`; monthly new-loan EMI is converted to whole-year term for the model while affordability uses the exact selected month count.
 
 ## Methodology
 
