@@ -1,8 +1,7 @@
 services:
   - type: web
-    name: loan-approval-prediction
+    name: loan-approval-prediction-app
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt && python train_model.py
     startCommand: gunicorn app:app
-
